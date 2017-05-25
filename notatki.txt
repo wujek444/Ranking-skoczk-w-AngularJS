@@ -1,0 +1,39 @@
+Aby angular działał, na naszej stronie musimy zdefiniować sobie APLIKACJĘ w naszym pliku HTML. Można ją zdefiniować ogólnie dla całego dokumentu HTML lub po prostu dla tagu BODY (my będziemy korzystać z Angulara jedynie wewnątrz BODY).
+
+-----------------------------------------------------------------------------
+Aplikację definiujemy dodając do tagu (HTML lub BODY) pozycję ng-app. Jeżeli chcemy, to możemy do ng-app dodać różne parametry jak np. nazwa.
+
+TIP: ng = aNGular
+-----------------------------------------------------------------------------
+
+Komendy związane z Angularem umieszczamy wewnątrz "{{ }}"".
+
+=============WYCIĄGANIE INFORMACJI Z TABELI NA STRONIE========
+Z tabeli na stronie da się wyciągnąć informacje z tabeli na stronie jako DANE (a nie jako tabelę).
+
+Aby to zrobić, należy:
+1. Sprawdzić źródło strony (inspect elements)
+2. Znaleźć tabelę i wybrać "copy outer HTML"
+3. Wchodzimy na stronę www.convertcsv.com i wybieramy "convert HTML table to CSV", wklejamy tutaj zawartość tabeli
+4. Kopiujemy output i wybieramy "CSV to JSON" (możemy wybrać, że pierwszy wiersz jest nazwami kolumn oraz wybrać pola które nas interesują)
+UWAGA!!!!: nazwa pozycji w JSONie nie może być rozdzielona minusem
+
+Tablice w Angularze definiujemy wewnątrz []. 
+W Angularze istnieją tablice asocjacyjne [ 'klucz' : 'wartosc', 'klucz1' : 'wartosc1']
+
+---------------------------------------------------------------------------------
+Przykład użycia ng-repeat (generowanie nagłówków tabeli na podstawie tablicy wartości):
+<th ng-repeat="naglowek in ['Miejsce', 'Bib', 'Imię', 'Punkty']">
+	{{ naglowek }}
+</th>
+
+Zalety rozwiązania:
+- gdy coś ulegnie zmianie, to zmiany wprowadza się w jednym miejscu zamiast poprawiać ogromnej tabeli w HTMLu 
+- kod zajmuje mniej miejsca
+
+============ KONTROLER I SCOPE ================================================
+$scope jest zmienną łączącą widok z kontrolerem (w obie strony) -> to co przypiszę w kontrolerze do $scope, będę mógł odczytać w widoku oraz to co zapiszę w widoku do $scope będę mógł wykorzystać w kontrolerze.
+
+aby przenieść dane z widoku do kontrolera musimy do elementu (formularza, input'a itp.) dodać parametr ng-model="nazwaModelu"
+
+po modelu możemy filtrować wyświetlane wyniki -> funkcja filtrująca wyszuka dowolną pozycję w JSONie

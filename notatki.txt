@@ -37,3 +37,20 @@ $scope jest zmienną łączącą widok z kontrolerem (w obie strony) -> to co pr
 aby przenieść dane z widoku do kontrolera musimy do elementu (formularza, input'a itp.) dodać parametr ng-model="nazwaModelu"
 
 po modelu możemy filtrować wyświetlane wyniki -> funkcja filtrująca wyszuka dowolną pozycję w JSONie
+
+---------------------------------------------------------------------------------------
+DODAJEMY CRUD'A:
+na razie nigdzie nie zapisujemy danych
+
+aby za pomocą Angulara obsłużyć kliknięcie prycisku, musimy dodać do przycisku atrybut ng-click="funkcja_z_kontrolera"
+
+ABY USUNĄĆ ELEMENT Z TABLICY KORZYSTAMY Z METODY SPLICE (natywna funkcja javascript:
+$scope.skoczkowie.splice(indeks_tablicy_skoczkowie, x, y);
+
+x - ile elementów ma zostać usuniętych
+y - zamiast usuniętego elementu ma zostać wstawiony nowy element y
+
+
+w HTMLu możemy do elementów dodać parametr ng-if="x == 1", który wyświetli element jeżeli warunek zostanie spełniony
+(można używać zmiennych ze scope)
+--------------------------------------------------------------------------------------
